@@ -2,6 +2,29 @@ import requests
 import zipfile
 from tqdm.auto import tqdm
 from pathlib import Path
+import lightning as ptl
+from pydantic import BaseSettings
+
+
+class DataConfig(BaseSettings):
+    data_folder: str = "data"
+    download_link: str = (
+        "https://github.com/babylm/babylm.github.io/raw/main/babylm_data.zip"
+    )
+
+
+class DataModule(ptl.LightningDataModule):
+    def __init__(self, conf: DataConfig = DataConfig()) -> None:
+        super().__init__()
+        self.conf = conf
+
+    def prepare_data(self) -> None:
+        raw_data_folder = Path(self.conf.download_link) / "raw"
+        output_file = Path(self.conf.data_folder) / "raw.zip"
+        raw_data_folder.mkdir(parents=True, exist_ok=True)
+
+    def setup(self, stage: str) -> None:
+        return super().setup(stage)
 
 
 def download_raw(
@@ -13,7 +36,6 @@ def download_raw(
     raw_data_folder = Path(data_folder) / "raw"
     output_file = Path(data_folder) / "raw.zip"
 
-    raw_data_folder.mkdir(parents=True, exist_ok=True)
     if lazy and not (raw_data_folder / ".SUCCESS").is_file():
         # ---- Download zip file
         response = requests.get(url, stream=True, timeout=timeout)
