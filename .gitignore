@@ -2,6 +2,7 @@
 /data
 /lightning_logs
 /tb_logs
+/artifacts
 .jupyter_ystore.db
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jetbrains+all,vim,emacs,macos,windows,linux
