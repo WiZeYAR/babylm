@@ -4,6 +4,8 @@
 /tb_logs
 /artifacts
 .jupyter_ystore.db
+/filter-data
+filter_data.zip
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jetbrains+all,vim,emacs,macos,windows,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,jetbrains+all,vim,emacs,macos,windows,linux
