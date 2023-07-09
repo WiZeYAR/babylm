@@ -4,14 +4,10 @@ version = "0.1.0"
 description = ""
 authors = []
 readme = "README.md"
-packages = [
-    {include = "data", from = "src"},
-    # {include = "train", from = "src"},
-    # {include = "inference", from = "src"},
-]
+packages = [{ include = "data", from = "src" }]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<4"
+python = "^3.9"
 tqdm = "^4.65.0"
 torch = "^2.0.1"
 torchtext = "^0.15.2"
