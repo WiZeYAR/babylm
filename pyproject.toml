@@ -14,6 +14,10 @@ tokenizers = "^0.13.3"
 accelerate = "^0.20.3"
 datasets = "^2.13.1"
 nltk = "^3.8.1"
+pydantic = "<2"
+
+[tool.poetry.scripts]
+search = "search:run_search"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.3.0"
