@@ -2,6 +2,7 @@
 /data
 /lightning_logs
 /tb_logs
+/BabyLM
 /artifacts
 .jupyter_ystore.db
 /filter-data
