@@ -15,6 +15,7 @@ accelerate = "^0.20.3"
 datasets = "^2.13.1"
 nltk = "^3.8.1"
 pydantic = "<2"
+ray = {extras = ["tune"], version = "^2.5.1"}
 
 [tool.poetry.scripts]
 search = "search:run_search"
