@@ -17,11 +17,14 @@ def run_search():
             metric="mean_accuracy",
             mode="max",
             chdir_to_trial_dir=False,
-            # search_alg=algo, # TODO
+            num_samples=5,
         ),
-        param_space=dict(
-            vocab_size=5000,
-        ),
+        param_space={
+            "vocab_size": tune.choice([4096,8192]),
+            "max_position_embedding": tune.choice([256,512]),
+            "num_attention_heads": tune.choice([8,12]),
+            "num_hidden_layers": tune.choice([4,6])
+        },
     )
     results = tuner.fit()
     print(results.get_best_result())

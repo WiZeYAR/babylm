@@ -99,9 +99,9 @@ def model(config: Hyperparams) -> nn.Module:
     return RobertaForMaskedLM(
         config=RobertaConfig(
             vocab_size=config.vocab_size,
-            max_position_embeddings=514,  # TODO: Hyperparameter?
-            num_attention_heads=12,  # TODO: Hyperparameter?
-            num_hidden_layers=6,  # TODO: Hyperparameter?
+            max_position_embeddings=config.max_position_embedding, 
+            num_attention_heads=config.num_attention_heads,
+            num_hidden_layers=config.num_hidden_layers,
             type_vocab_size=1,  # TODO: Hyperparameter?
         )
     )
@@ -116,7 +116,7 @@ def start_trial(trial_config_dict: dict[Any, Any]):
         args=TrainingArguments(
             output_dir=session.get_trial_dir(),
             overwrite_output_dir=True,
-            num_train_epochs=1,  # TODO: Hyperparameter?
+            num_train_epochs=5,  # TODO: Hyperparameter?
             per_gpu_train_batch_size=64,  # TODO: Hyperparameter?
             save_steps=3000,
             save_total_limit=2,
