@@ -4,10 +4,10 @@
 		"dockerfile": "Dockerfile"
 	},
 	// 👇 Uncomment this, if run on the GPU node
-	// "runArgs": [
-	// 	"--gpus",
-	// 	"all"
-	// ],
+	"runArgs": [
+		"--gpus",
+		"all"
+	],
 	// 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
 	// "features": {},
 	// 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
