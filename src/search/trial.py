@@ -129,7 +129,7 @@ def start_trial(trial_config_dict: dict[Any, Any]):
         ),
         train_dataset=dataset(config),
     )
-    # trainer.train()
+    trainer.train()
     trainer.save_model(session.get_trial_dir())
 
     # ---- Evaluation
